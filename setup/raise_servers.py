@@ -47,7 +47,7 @@ else:
     conn.create_security_group_rule(sec_group_name, 5556, 5556, 'TCP')
 
 intersection = conn.create_server(wait=True, auto_ip=True,
-    name=opentraffic_trafficsync,
+    name=server1_name,
     image=image_id,
     flavor=flavor_name,
     userdata=ex_userdata,
@@ -78,7 +78,7 @@ else:
     conn.create_security_group_rule(sec_group_name, 5556, 5556, 'TCP')
 
 cartrack_god = conn.create_server(wait=True, auto_ip=True,
-    name=opentraffic_cartrack,
+    name=server2_name,
     image=image_id,
     flavor=flavor_name,
     userdata=ex_userdata,
