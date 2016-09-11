@@ -35,7 +35,7 @@ ex_userdata = '''#!/usr/bin/env bash
 curl -L -s https://raw.githubusercontent.com/openstack-hackathon/openTraffic/master/setup/setup_zmq.sh; bash setup_zmq.sh intersection
 '''
 
-sec_group_name = 'opentraffic'
+sec_group_name = "opentraffic"
 if conn.search_security_groups(sec_group_name):
     pass #print('Security group already exists. Skipping creation.')
 else:
@@ -81,7 +81,7 @@ else:
 cartrack_god = conn.create_server(wait=True, auto_ip=True,
     name=server2_name,
     image=image_id,
-    flavor=flavor_name,
+    flavor=flavor_id,
     userdata=ex_userdata,
     network=external_network,
     security_groups=['default',sec_group_name])

@@ -56,6 +56,7 @@ intersection = conn.create_server(wait=True, auto_ip=True,
     security_groups=['default',sec_group_name])
 
 ip_intersection = intersection.accessIPv4
+print ip_intersection
 
 # INSTANCE IMAGE AND FLAVOR - INTERSECTIONS
 print "\nCREATE INSTANCE FOR CARS:"
