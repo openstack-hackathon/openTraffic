@@ -35,7 +35,7 @@ ex_userdata = '''#!/usr/bin/env bash
 curl -L -s https://raw.githubusercontent.com/openstack-hackathon/openTraffic/master/setup/setup_zmq.sh; bash setup_zmq.sh intersection
 '''
 
-sec_group_name = 'opentraffic'
+sec_group_name = "opentraffic"
 if conn.search_security_groups(sec_group_name):
     pass #print('Security group already exists. Skipping creation.')
 else:
