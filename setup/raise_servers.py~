@@ -2,7 +2,7 @@
 
 from shade import *
 
-conn = openstack_cloud(cloud='osic-hackathon-team.c1')
+conn = openstack_cloud(cloud='opentraffic') #osic-hackathon-team.c1')
 
 server1_name = "opentraffic_trafficsync"
 server2_name = "opentraffic_cartrack"
@@ -29,6 +29,7 @@ if server2_name in servers:
 print "\nCREATE INSTANCE FOR INTERSECTION:"
 image_id = "95576f28-afed-4b63-93b4-1d07928930da"
 flavor_name = "m2.medium"
+flavor_id="8"
 external_network="7004a83a-13d3-4dcd-8cf5-52af1ace4cae"
 ex_userdata = '''#!/usr/bin/env bash
 curl -L -s https://raw.githubusercontent.com/openstack-hackathon/openTraffic/master/setup/setup_zmq.sh; bash setup_zmq.sh intersection
@@ -49,7 +50,7 @@ else:
 intersection = conn.create_server(wait=True, auto_ip=True,
     name=server1_name,
     image=image_id,
-    flavor=flavor_name,
+    flavor=flavor_id,
     userdata=ex_userdata,
     network=external_network,
     security_groups=['default',sec_group_name])
