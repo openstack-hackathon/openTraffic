@@ -1,6 +1,6 @@
 # Basic Server Installs
-sudo apt-get clean
-sudo apt-get update
+sudo apt-get update & sudo apt-get upgrade -y
+sudo apt-get install -y openjdk-7-jre unzip
 
 sudo apt-get install -y dpkg
 sudo dpkg --configure -a &&
@@ -11,6 +11,7 @@ sudo apt-get install -y build-essential manpages-dev
 sudo apt-get install -y pkg-config
 sudo apt-get install -y python-dev
 sudo apt-get install -y screen
+#sudo apt-get install -y git
 
 #libzmq
 cd /tmp
@@ -43,9 +44,14 @@ cd opentraffic
 wget https://raw.githubusercontent.com/csmc88/oshack_opentraffic/master/control_interception.py
 wget https://raw.githubusercontent.com/csmc88/oshack_opentraffic/master/courier.py
 wget https://raw.githubusercontent.com/csmc88/oshack_opentraffic/master/TrayectoriaCarro.py
+wget https://raw.githubusercontent.com/csmc88/oshack_opentraffic/master/gen_car.sh
 
 if [ $1 == "intersection"]; then
     screen -S intersection_control -dm "python intersection.py -u intersection1 > allout.txt 2>&1"
+fi
+if [ $1 == "cartrack_god"]; then
+    ip_intersection=$2
+    screen -S cartrack_god -dm "bash gen_car.sh $ip_int > allout.txt 2>&1"
 fi
 
 # if $1 is intersection
