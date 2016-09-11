@@ -4,9 +4,8 @@ from shade import *
 
 conn = openstack_cloud(cloud='osic-hackathon-team.c1')
 
-server1_name = "opentraffic_trafficsync"
-server2_name = "opentraffic_cartrack"
-server3_name = "opentraffic_cargen"
+server1_name = "slads_s1"
+server2_name = "slads_s2"
 
 servers = conn.list_servers()
 servers = [str(server.name) for server in servers]
@@ -20,9 +19,9 @@ if server2_name in servers:
 #images = conn.list_images()
 #image_name="ubuntu"
 #image_version="14"
-#for x in images:
-#   print 'NAME:' + str(x.name)
-#   print 'ID  :' + str(x.id) + '\n'
+for x in images:
+    print 'NAME:' + str(x.name)
+    print 'ID  :' + str(x.id) + '\n'
 #print image_id
 
 # INSTANCE IMAGE AND FLAVOR - INTERSECTIONS
